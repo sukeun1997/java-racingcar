@@ -8,6 +8,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ValidatorTest {
 
+    /**
+     * ValidateInput 테스트
+     */
     @Test
     @DisplayName("자동차 이름에 잘 못된 구분자 입력")
     void test_validateInput_01() {
@@ -48,5 +51,22 @@ class ValidatorTest {
     void test_validateInput_06() {
         boolean result = Validator.validateInput("자동차01");
         assertThat(result).isTrue();
+    }
+
+    /**
+     * ValidateName 테스트
+     */
+    @Test
+    @DisplayName("5글자 이하 입력")
+    void test_validateName_01() {
+        String carName = "car1";
+        assertThat(Validator.validateName(carName)).isTrue();
+    }
+
+    @Test
+    @DisplayName("5글자 초과 입력")
+    void test_validateName_02() {
+        String carName = "car1234";
+        assertThat(Validator.validateName(carName)).isFalse();
     }
 }
