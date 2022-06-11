@@ -2,8 +2,8 @@ package racing.model;
 
 public class Car {
 
-    private final String name;
-    private final int location;
+    private String name;
+    private int location;
 
     public Car(String name) {
         this.name = name;
@@ -16,5 +16,11 @@ public class Car {
 
     public int getLocation() {
         return location;
+    }
+
+    public void move(int randomNumber) {
+        if (randomNumber >= 4) {
+            this.location++;
+        }
     }
 }
