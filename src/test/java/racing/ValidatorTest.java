@@ -20,7 +20,7 @@ class ValidatorTest {
     @Test
     @DisplayName("자동차 이름 알맞은 구분자")
     void test_validateInput_02() {
-     Validator.validateInput("a,b,c");
+        Validator.validateInput("a,b,c");
     }
 
     @Test
@@ -68,5 +68,27 @@ class ValidatorTest {
         String carName = "car1234";
         assertThatThrownBy(() -> Validator.validateName(carName))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    /**
+     * validateNumber 테스트
+     */
+    @Test
+    @DisplayName("게임 횟수에 0 보다 큰 숫자 입력")
+    void test_validateNumber_01() {
+        Validator.validateNumber(11);
+    }
+
+    @Test
+    @DisplayName("게임 횟수에 0 입력")
+    void test_validateNumber_02() {
+        assertThatThrownBy(() -> Validator.validateNumber(0));
+    }
+
+    @Test
+    @DisplayName("게임 횟수에 음수 입력")
+    void test_validateNumber_03() {
+        assertThatThrownBy(() -> Validator.validateNumber(-5));
     }
 }

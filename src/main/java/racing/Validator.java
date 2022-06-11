@@ -18,6 +18,10 @@ public class Validator {
         }
     }
 
+    public static void validateNumber(int count) {
 
-
+        if (count <= 0) {
+            throw new IllegalArgumentException("0 보다 큰 숫자를 입력 해 주세요.");
+        }
+    }
 }
