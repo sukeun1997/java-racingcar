@@ -1,6 +1,9 @@
 package racing;
 
+import racing.model.Car;
 import racing.view.InputView;
+
+import java.util.List;
 
 public class Running {
 
@@ -10,7 +13,9 @@ public class Running {
         String[] carNames = inputView.getCarNames();
         int playCount = inputView.getPlayCount();
 
-        CarFactory.createCars(carNames);
+        List<Car> cars = CarFactory.createCars(carNames);
 
+        Racing racing = new Racing(cars);
+        racing.doRace(playCount);
     }
 }
